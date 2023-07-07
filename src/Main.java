@@ -29,8 +29,8 @@ public class Main {
             System.out.println(persons);
             persons.stream()
                     .filter(age -> age > 16)
-                    .filter(age -> age < 60)
-                    .filter(value -> value.education() = Education.wHIGHER)
+                    .filter(age -> age < 60 | 65)
+                    .filter(value -> value.education() = Education.HIGHER)
                     .sorted(Comparator.comparing(Person::getFamily))
                     .collect(Collectors.toList());
             System.out.println(persons);
