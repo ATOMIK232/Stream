@@ -27,13 +27,12 @@ public class Main {
                     .map(x.getFamily() + x.getAge())
                     .collect(Collectors.toList());
             System.out.println(persons);
-            persons.stream()
-                    .filter(age -> age > 16)
-                    .filter(age -> age < 60 | 65)
-                    .filter(value -> value.education() = Education.HIGHER)
-                    .sorted(Comparator.comparing(Person::getFamily))
+            List<String> higher = persons.stream()
+                    .filter(x -> x.getEducation() == Education.HIGHER)
+                    .filter(x -> x.getSex() == Sex.MAN && x.getAge() < 65 || x.getSex() == Sex.WOMAN && x.getAge() > 18 && x.getAge() <60)
+                    .map(Person::getFamily)
                     .collect(Collectors.toList());
-            System.out.println(persons);
+            System.out.println(higher);
         }
     }
 }
